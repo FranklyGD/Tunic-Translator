@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=6 format=2]
 
-[ext_resource path="res://Fonts/LinLibertine_RB.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://Fonts/LinLibertine_R.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/Fonts/LinLibertine_RB.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Fonts/LinLibertine_R.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=4]
 size = 20

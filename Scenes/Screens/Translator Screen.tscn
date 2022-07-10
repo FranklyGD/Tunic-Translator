@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/Audio Generators/Fairy Generator.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Export Menu.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Per Rune.gd" type="Script" id=6]
-[ext_resource path="res://Tunic UI.tres" type="Theme" id=7]
+[ext_resource path="res://UI/Tunic UI.tres" type="Theme" id=7]
 [ext_resource path="res://Scripts/Translation List.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Trunic.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Lines.gd" type="Script" id=10]
@@ -339,7 +339,7 @@ __meta__ = {
 
 [node name="Translations" type="GridContainer" parent="HSplitContainer/PanelContainer/ScrollContainer"]
 margin_right = 633.0
-margin_bottom = 4114.0
+margin_bottom = 2055.0
 custom_constants/hseparation = 15
 columns = 4
 script = ExtResource( 8 )
