@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/LinLibertine_RB.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/LinLibertine_R.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[resource]
+default_font = SubResource( 3 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 0
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+LineEdit/fonts/font = SubResource( 4 )
+TextEdit/fonts/font = SubResource( 5 )

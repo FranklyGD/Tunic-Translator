@@ -1,0 +1,272 @@
+{
+	"vowels": [
+		{
+			"phenome": "A",
+			"examples": ["at", "sat", "quack"],
+			"rune": [true, true, true, false, false],
+			"tune": [20, 24]
+		},
+		{
+			"phenome": "AR",
+			"examples": ["R", "are", "car", "mark"],
+			"rune": [true, true, false, true, true],
+			"tune": [15, 20]
+		},
+		{
+			"phenome": "AH",
+			"aliases": ["AW"],
+			"examples": ["yawn", "augment", "drawn"],
+			"rune": [false, true, true, false, false],
+			"tune": [15, 19, 24]
+		},
+		{
+			"phenome": "AY",
+			"examples": ["A", "say", "paid", "pain"],
+			"rune": [false, true, false, false, false],
+			"tune": [14, 19, 24]
+		},
+		
+		{
+			"phenome": "E",
+			"examples": ["bed", "dead"],
+			"rune": [false, false, true, true, true],
+			"tune": [19, 20]
+		},
+		{
+			"phenome": "EE",
+			"examples": ["E", "bee", "feed", "knead"],
+			"rune": [false, true, true, true, true],
+			"tune": [14, 15, 20]
+		},
+		{
+			"phenome": "EER",
+			"examples": ["ear", "fear", "deer"],
+			"rune": [false, true, true, false, true],
+			"tune": [19, 24]
+		},
+		{
+			"phenome": "EH",
+			"aliases": ["UH"],
+			"examples": ["mug", "ton", "tuck"],
+			"rune": [true, true, false, false, false],
+			"tune": [14, 20]
+		},
+		{
+			"phenome": "ERE",
+			"examples": ["air", "hair", "care"],
+			"rune": [false, false, true, false, true],
+			"tune": [19, 20, 24]
+		},
+		
+		{
+			"phenome": "I",
+			"examples": ["bit", "infinite", "image"],
+			"rune": [false, false, false, true, true],
+			"tune": [15, 24]
+		},
+		{
+			"phenome": "IE",
+			"examples": ["I", "die", "cry", "buy"],
+			"rune": [true, false, false, false, false],
+			"tune": [15, 19]
+		},
+		{
+			"phenome": "IR",
+			"aliases": ["ER"],
+			"examples": ["bird", "word", "curve"],
+			"rune": [true, false, true, true, true],
+			"tune": [15, 19, 20]
+		},
+		
+		{
+			"phenome": "OH",
+			"examples": ["O", "foe", "crow", "toad"],
+			"rune": [true, true, true, true, true],
+			"tune": [14, 19, 20]
+		},
+		{
+			"phenome": "OI",
+			"aliases": ["OY"],
+			"examples": ["toy", "annoy"],
+			"rune": [false, false, false, true, false],
+			"tune": [14, 24]
+		},
+		{
+			"phenome": "OO",
+			"examples": ["tube", "fruit", "loot", "group"],
+			"rune": [true, true, true, true, false],
+			"tune": [14, 20, 24]
+		},
+		{
+			"phenome": "OU",
+			"aliases": ["UL"],
+			"examples": ["full", "wool"],
+			"rune": [false, false, true, true, false],
+			"tune": [14, 15]
+		},
+		{
+			"phenome": "OW",
+			"examples": ["town", "crown", "found"],
+			"rune": [false, false, false, false, true],
+			"tune": [14, 19]
+		},
+		{
+			"phenome": "ORE",
+			"aliases": ["OR"],
+			"examples": ["or", "ore", "lore", "for"],
+			"rune": [true, true, true, false, true],
+			"tune": [14, 15, 19]
+		}
+	],
+	
+	"consonants": [
+		{
+			"phenome": "B",
+			"examples": ["ball", "branch", "bounce"],
+			"rune": [false, true, false, false, false, true],
+			"tune": [12]
+		},
+		{
+			"phenome": "CH",
+			"examples": ["change", "chase", "couch"],
+			"rune": [false, false, true, false, true, false],
+			"tune": [3, 4, 12]
+		},
+		{
+			"phenome": "D",
+			"examples": ["dance", "edit", "mud"],
+			"rune": [false, true, false, true, false, true],
+			"tune": [3, 7]
+		},
+		{
+			"phenome": "F",
+			"examples": ["face", "often", "cough"],
+			"rune": [true, false, false, true, true, false],
+			"tune": [8]
+		},
+		{
+			"phenome": "G",
+			"examples": ["good", "tug", "gun"],
+			"rune": [true, false, false, false, true, true],
+			"tune": [3, 7, 12]
+		},
+		{
+			"phenome": "H",
+			"examples": ["hot", "hold"],
+			"rune": [false, true, false, false, true, true],
+			"tune": [2, 7, 8]
+		},
+		{
+			"phenome": "J",
+			"examples": ["gym", "jump"],
+			"rune": [false, true, false, true, false, false],
+			"tune": [2, 3, 7]
+		},
+		{
+			"phenome": "K",
+			"examples": ["cool", "cook", "rock", "kevin"],
+			"rune": [true, true, false, false, false, true],
+			"tune": [3, 7]
+		},
+		{
+			"phenome": "L",
+			"examples": ["look", "follow", "toll"],
+			"rune": [false, true, false, false, true, false],
+			"tune": [7, 8]
+		},
+		{
+			"phenome": "M",
+			"examples": ["math", "worm", "summer"],
+			"rune": [false, false, false, true, false, true],
+			"tune": [7]
+		},
+		{
+			"phenome": "N",
+			"examples": ["none", "phone", "spent"],
+			"rune": [false, false, true, true, false, true],
+			"tune": [2]
+		},
+		{
+			"phenome": "NG",
+			"examples": ["sing", "wing", "think", "wink"],
+			"rune": [true, true, true, true, true, true],
+			"tune": [2, 3]
+		},
+		{
+			"phenome": "P",
+			"examples": ["pole", "top", "copper"],
+			"rune": [true, false, false, false, true, false],
+			"tune": [8, 12]
+		},
+		{
+			"phenome": "R",
+			"examples": ["run", "horror", "rain"],
+			"rune": [true, true, false, false, true, false],
+			"tune": [3, 12]
+		},
+		{
+			"phenome": "S",
+			"examples": ["sun", "toss", "miss"],
+			"rune": [true, true, false, true, true, false],
+			"tune": [3]
+		},
+		{
+			"phenome": "SH",
+			"examples": ["shut", "wash", "shore"],
+			"rune": [true, false, true, true, true, true],
+			"tune": [2, 12]
+		},
+		{
+			"phenome": "T",
+			"examples": ["top", "tall", "not"],
+			"rune": [true, false, true, false, true, false],
+			"tune": [3, 8]
+		},
+		{
+			"phenome": "TH",
+			"aliases": ["TF"],
+			"examples": ["think", "thaw", "mouth"],
+			"rune": [true, true, true, false, true, false],
+			"tune": [3]
+		},
+		{
+			"phenome": "TH2",
+			"aliases": ["TV"],
+			"examples": ["the", "this"],
+			"rune": [false, true, false, true, true, true],
+			"tune": [2, 7],
+			"comment": "Disambiguation, suffix-ed with a number"
+		},
+		{
+			"phenome": "V",
+			"examples": ["vase", "vowel", "cavern"],
+			"rune": [false, true, true, false, false, true],
+			"tune": [2, 8, 12]
+		},
+		{
+			"phenome": "W",
+			"examples": ["win", "tower"],
+			"rune": [true, false, true, false, false, false],
+			"tune": [7, 12]
+		},
+		{
+			"phenome": "Y",
+			"examples": ["you", "yarn"],
+			"rune": [false, true, true, false, true, false],
+			"tune": [2, 3, 8]
+		},
+		{
+			"phenome": "Z",
+			"examples": ["zebra", "dozen"],
+			"rune": [false, true, true, false, true, true],
+			"tune": [3, 7, 8]
+		},
+		{
+			"phenome": "ZH",
+			"examples": ["conclusion, fusion"],
+			"rune": [true, true, true, true, false, true],
+			"tune": [3, 4, 8],
+			"comment": "Tune is made up"
+		}
+	]
+}

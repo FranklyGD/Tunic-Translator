@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Line.gd" type="Script" id=2]
+[ext_resource path="res://Tunic UI.tres" type="Theme" id=3]
+
+[node name="Line" type="HBoxContainer"]
+margin_right = 324.0
+margin_bottom = 306.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line End" type="CenterContainer" parent="."]
+margin_right = 74.0
+margin_bottom = 306.0
+
+[node name="Button" type="Button" parent="Line End"]
+margin_top = 138.0
+margin_right = 74.0
+margin_bottom = 167.0
+theme = ExtResource( 3 )
+text = "+ Word"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Line End/Button" to="." method="_add_word_button_pressed"]
