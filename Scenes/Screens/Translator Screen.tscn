@@ -105,44 +105,49 @@ margin_right = 1024.0
 margin_bottom = 600.0
 rect_clip_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel"]
-anchor_right = 1.0
+[node name="HBoxContainer" type="VBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = -16.0
-margin_bottom = 55.0
+margin_right = 207.0
+margin_bottom = 337.0
 
 [node name="Label" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
-margin_top = 8.0
-margin_right = 66.0
-margin_bottom = 31.0
+margin_right = 191.0
+margin_bottom = 23.0
 text = "Preview"
+align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Rune Settings Panel" type="PanelContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
-margin_left = 70.0
-margin_right = 580.0
-margin_bottom = 39.0
+margin_top = 27.0
+margin_right = 191.0
+margin_bottom = 159.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel"]
 margin_left = 8.0
 margin_top = 2.0
-margin_right = 502.0
-margin_bottom = 37.0
+margin_right = 183.0
+margin_bottom = 130.0
 
-[node name="Height" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_top = 6.0
-margin_right = 56.0
-margin_bottom = 29.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer"]
+margin_right = 175.0
+margin_bottom = 27.0
+
+[node name="Height" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer"]
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
 text = "Height"
 
-[node name="Height Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_left = 60.0
-margin_right = 148.0
-margin_bottom = 35.0
+[node name="Height Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer"]
+margin_left = 87.0
+margin_right = 175.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
 max_value = 300.0
 value = 16.0
 rounded = true
@@ -150,22 +155,23 @@ allow_greater = true
 align = 1
 suffix = "px"
 
-[node name="VSeparator" type="VSeparator" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_left = 152.0
-margin_right = 156.0
-margin_bottom = 35.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer"]
+margin_top = 31.0
+margin_right = 175.0
+margin_bottom = 58.0
 
-[node name="Radius" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_left = 160.0
-margin_top = 6.0
-margin_right = 215.0
-margin_bottom = 29.0
+[node name="Radius" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer2"]
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
 text = "Radius"
 
-[node name="Radius Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_left = 219.0
-margin_right = 307.0
-margin_bottom = 35.0
+[node name="Radius Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer2"]
+margin_left = 87.0
+margin_right = 175.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
 max_value = 300.0
 value = 16.0
 rounded = true
@@ -173,22 +179,23 @@ allow_greater = true
 align = 1
 suffix = "px"
 
-[node name="VSeparator2" type="VSeparator" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_left = 311.0
-margin_right = 315.0
-margin_bottom = 35.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer"]
+margin_top = 62.0
+margin_right = 175.0
+margin_bottom = 89.0
 
-[node name="Thickness" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_left = 319.0
-margin_top = 6.0
-margin_right = 402.0
-margin_bottom = 29.0
+[node name="Thickness" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer3"]
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
 text = "Thickness"
 
-[node name="Thickness Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer"]
-margin_left = 406.0
-margin_right = 494.0
-margin_bottom = 35.0
+[node name="Thickness Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer3"]
+margin_left = 87.0
+margin_right = 175.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
 max_value = 300.0
 value = 2.0
 rounded = true
@@ -196,57 +203,72 @@ allow_greater = true
 align = 1
 suffix = "px"
 
-[node name="Audio Generator Panel" type="PanelContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
-margin_left = 584.0
-margin_right = 938.0
-margin_bottom = 39.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer"]
+margin_top = 93.0
+margin_right = 175.0
+margin_bottom = 128.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel"]
+[node name="Baseline" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer4"]
+margin_top = 6.0
+margin_right = 85.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+text = "Baseline"
+
+[node name="Thickness Spinner" type="CheckBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer4"]
+margin_left = 89.0
+margin_right = 175.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+pressed = true
+flat = true
+align = 1
+
+[node name="Audio Generator Panel" type="PanelContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
+margin_top = 163.0
+margin_right = 191.0
+margin_bottom = 272.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel"]
 margin_left = 8.0
 margin_top = 2.0
-margin_right = 346.0
-margin_bottom = 37.0
+margin_right = 183.0
+margin_bottom = 107.0
 
-[node name="OptionButton" type="OptionButton" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer"]
-margin_right = 124.0
+[node name="OptionButton" type="OptionButton" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer"]
+margin_right = 175.0
 margin_bottom = 35.0
 text = "Generator"
 flat = true
+clip_text = true
 script = ExtResource( 14 )
 
-[node name="VSeparator3" type="VSeparator" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer"]
-margin_left = 128.0
-margin_right = 132.0
-margin_bottom = 35.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer"]
+margin_top = 39.0
+margin_right = 175.0
+margin_bottom = 66.0
 
-[node name="NPS" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer"]
-margin_left = 136.0
-margin_top = 6.0
-margin_right = 171.0
-margin_bottom = 29.0
-text = "NPS"
+[node name="NPS" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer"]
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "Note/Sec"
 
-[node name="NPS Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer"]
-margin_left = 175.0
-margin_right = 263.0
-margin_bottom = 35.0
+[node name="NPS Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer"]
+margin_left = 87.0
+margin_right = 175.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
 min_value = 1.0
 value = 12.0
 allow_greater = true
 align = 1
 
-[node name="VSeparator2" type="VSeparator" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer"]
-margin_left = 267.0
-margin_right = 271.0
-margin_bottom = 35.0
-
-[node name="Play Button" type="Button" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer"]
-margin_left = 275.0
-margin_right = 338.0
-margin_bottom = 35.0
+[node name="Play Button" type="Button" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer"]
+margin_top = 70.0
+margin_right = 175.0
+margin_bottom = 105.0
 rect_pivot_offset = Vector2( 93.8593, 50.7525 )
 size_flags_vertical = 4
 text = "Play"
@@ -255,21 +277,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Spacer" type="Control" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
-margin_left = 942.0
-margin_right = 942.0
-margin_bottom = 39.0
-size_flags_horizontal = 3
-
 [node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
-margin_left = 946.0
-margin_right = 1044.0
-margin_bottom = 39.0
+margin_top = 276.0
+margin_right = 191.0
+margin_bottom = 315.0
 
 [node name="Export Menu" type="MenuButton" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/PanelContainer"]
 margin_left = 8.0
 margin_top = 2.0
-margin_right = 90.0
+margin_right = 183.0
 margin_bottom = 37.0
 text = "Export"
 script = ExtResource( 5 )
@@ -277,8 +293,8 @@ script = ExtResource( 5 )
 [node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 72.0
+margin_left = 216.0
+margin_top = 16.0
 margin_right = -16.0
 margin_bottom = -16.0
 
@@ -336,7 +352,7 @@ margin_bottom = -16.0
 
 [node name="Translations" type="GridContainer" parent="HSplitContainer/PanelContainer/ScrollContainer"]
 margin_right = 633.0
-margin_bottom = 2055.0
+margin_bottom = 1173.0
 custom_constants/hseparation = 15
 columns = 4
 script = ExtResource( 8 )
@@ -364,14 +380,15 @@ current_path = "/"
 [connection signal="tab_changed" from="HSplitContainer/Control/VSplitContainer/TabContainer" to="HSplitContainer/Control/VSplitContainer/TabContainer/Per Rune" method="_tab_changed"]
 [connection signal="tab_changed" from="HSplitContainer/Control/VSplitContainer/TabContainer" to="HSplitContainer/Control/VSplitContainer/TabContainer/Phonemes to Runes" method="_tab_changed"]
 [connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/TabContainer/Per Rune/ScrollContainer/Lines/HBoxContainer/Button" to="HSplitContainer/Control/VSplitContainer/TabContainer/Per Rune/ScrollContainer/Lines" method="_add_line_button_pressed"]
-[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer/Height Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_height"]
-[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer/Radius Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_radius"]
-[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer/Thickness Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_thickness"]
-[connection signal="item_selected" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer/OptionButton" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="_generator_index_item_selected"]
-[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer/NPS Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="_nps_spinner_value_changed"]
-[connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer/Play Button" to="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer/Play Button" method="set_disabled" binds= [ true ]]
-[connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer/Play Button" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="play"]
+[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer/Height Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_height"]
+[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer2/Radius Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_radius"]
+[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer3/Thickness Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_thickness"]
+[connection signal="toggled" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer4/Thickness Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_cut_under_line"]
+[connection signal="item_selected" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/OptionButton" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="_generator_index_item_selected"]
+[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer/NPS Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="_nps_spinner_value_changed"]
+[connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/Play Button" to="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/Play Button" method="set_disabled" binds= [ true ]]
+[connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/Play Button" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="play"]
 [connection signal="export_audio" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/PanelContainer/Export Menu" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="save_audio"]
 [connection signal="export_image" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/PanelContainer/Export Menu" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="save"]
-[connection signal="audio_played" from="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" to="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/HBoxContainer/Play Button" method="set_disabled" binds= [ false ]]
+[connection signal="audio_played" from="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" to="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/Play Button" method="set_disabled" binds= [ false ]]
 [connection signal="toggled" from="HSplitContainer/Control/Button" to="HSplitContainer/PanelContainer" method="set_visible"]
