@@ -11,8 +11,8 @@
 [ext_resource path="res://Scripts/Trunic.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Lines.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Phonemes to Runes.gd" type="Script" id=11]
-[ext_resource path="res://Scripts/Audio Generators/Squaric Generator.gd" type="Script" id=12]
-[ext_resource path="res://Scripts/Audio Generators/Squaric2 Generator.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Audio Generators/Game Start Generator.gd" type="Script" id=12]
+[ext_resource path="res://Scripts/Audio Generators/Trophy Generator.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/Generator Options.gd" type="Script" id=14]
 
 [node name="Translator" type="Control"]
@@ -369,7 +369,7 @@ margin_bottom = -16.0
 
 [node name="Translations" type="GridContainer" parent="HSplitContainer/PanelContainer/ScrollContainer"]
 margin_right = 633.0
-margin_bottom = 1173.0
+margin_bottom = 2055.0
 custom_constants/hseparation = 15
 columns = 4
 script = ExtResource( 8 )
