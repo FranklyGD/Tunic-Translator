@@ -63,11 +63,15 @@ func save_audio() -> void:
 	var file_dialog = Persistent.file_dialog
 	file_dialog.filters = ["*.wav ; Audio file"]
 	file_dialog.connect("file_selected", self, "_export_audio_dialog_file_selected")
+	file_dialog.connect("popup_hide", self, "file_dialog_close")
 	file_dialog.popup_centered()
-	
-func _export_audio_dialog_file_selected(path: String) -> void:
+
+func file_dialog_close() -> void:
 	var file_dialog = Persistent.file_dialog
 	file_dialog.disconnect("file_selected", self, "_export_audio_dialog_file_selected")
+	file_dialog.disconnect("popup_hide", self, "file_dialog_close")
+	
+func _export_audio_dialog_file_selected(path: String) -> void:
 	if changed:
 		generate()
 	var stream: AudioStreamSample = get_child(generator_index).stream

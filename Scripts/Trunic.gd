@@ -233,12 +233,15 @@ func save() -> void:
 	var file_dialog = Persistent.file_dialog
 	file_dialog.filters = ["*.svg ; Scalable Vector file"]
 	file_dialog.connect("file_selected", self, "write_file")
+	file_dialog.connect("popup_hide", self, "file_dialog_close")
 	file_dialog.popup_centered()
 
-func write_file(path: String) -> void:
+func file_dialog_close() -> void:
 	var file_dialog = Persistent.file_dialog
 	file_dialog.disconnect("file_selected", self, "write_file")
-	
+	file_dialog.disconnect("popup_hide", self, "file_dialog_close")
+
+func write_file(path: String) -> void:
 	var file = File.new()
 	file.open(path, File.WRITE)
 	
