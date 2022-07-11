@@ -7,18 +7,15 @@
 margin_right = 324.0
 margin_bottom = 306.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Line End" type="CenterContainer" parent="."]
-margin_right = 74.0
+margin_right = 82.0
 margin_bottom = 306.0
 
 [node name="Button" type="Button" parent="Line End"]
-margin_top = 138.0
-margin_right = 74.0
-margin_bottom = 167.0
+margin_top = 135.0
+margin_right = 82.0
+margin_bottom = 170.0
 theme = ExtResource( 3 )
 text = "+ Word"
 __meta__ = {

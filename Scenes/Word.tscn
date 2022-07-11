@@ -22,13 +22,13 @@ rect_min_size = Vector2( 32, 0 )
 
 [node name="Word End" type="CenterContainer" parent="."]
 margin_left = 64.0
-margin_right = 135.0
+margin_right = 143.0
 margin_bottom = 306.0
 
 [node name="Button" type="Button" parent="Word End"]
-margin_top = 138.0
-margin_right = 71.0
-margin_bottom = 167.0
+margin_top = 135.0
+margin_right = 79.0
+margin_bottom = 170.0
 theme = ExtResource( 1 )
 text = "+ Rune"
 __meta__ = {
