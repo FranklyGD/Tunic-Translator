@@ -14,7 +14,7 @@ func _ready() -> void:
 	var label
 
 	label = Label.new()
-	label.text = "Phenome"
+	label.text = "Phoneme"
 	add_child(label)
 	
 	label = Label.new()
@@ -45,7 +45,7 @@ func add_row(entry: Dictionary) -> void:
 	var label
 
 	label = Label.new()
-	label.text = entry.phenome
+	label.text = entry.phoneme
 	if entry.has("aliases"):
 		label.text += " (%s)" % PoolStringArray(entry.aliases).join(", ")
 	add_child(label)

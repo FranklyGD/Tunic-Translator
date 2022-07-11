@@ -11,15 +11,15 @@ func rebuild() -> void:
 		var word_pool = PoolStringArray()
 		for word in line:
 		
-			var phenome_pool = PoolStringArray()
+			var phoneme_pool = PoolStringArray()
 			for rune in word:
-				phenome_pool.append(get_phenomes_from_pattern(rune))
-			word_pool.append(phenome_pool.join(" "))
+				phoneme_pool.append(get_phonemes_from_pattern(rune))
+			word_pool.append(phoneme_pool.join(" "))
 		line_pool.append(word_pool.join("  "))
 	text_edit_node.text = line_pool.join("\n")
 	text_edit_node.update()
 
-func get_phenomes_from_pattern(pattern: Array) -> String:
+func get_phonemes_from_pattern(pattern: Array) -> String:
 	var empty = true
 	
 	for s in 5:
@@ -27,13 +27,13 @@ func get_phenomes_from_pattern(pattern: Array) -> String:
 			empty = false
 			break
 	
-	var vowel_phenome: String
+	var vowel_phoneme: String
 	if not empty:
 		var vowel_translation = Persistent.get_translation("vowels", "rune", pattern.slice(0, 4))
 		if vowel_translation.empty():
-			vowel_phenome = "?"
+			vowel_phoneme = "?"
 		else:
-			vowel_phenome = vowel_translation.phenome
+			vowel_phoneme = vowel_translation.phoneme
 		
 	empty = true
 	
@@ -42,24 +42,24 @@ func get_phenomes_from_pattern(pattern: Array) -> String:
 			empty = false
 			break
 	
-	var consonant_phenome: String
+	var consonant_phoneme: String
 	if not empty:
 		var consonant_translation = Persistent.get_translation("consonants", "rune", pattern.slice(5, 10))
 		if consonant_translation.empty():
-			consonant_phenome = "?"
+			consonant_phoneme = "?"
 		else:
-			consonant_phenome = consonant_translation.phenome
+			consonant_phoneme = consonant_translation.phoneme
 
-	if consonant_phenome or vowel_phenome:
-		if consonant_phenome and vowel_phenome:
+	if consonant_phoneme or vowel_phoneme:
+		if consonant_phoneme and vowel_phoneme:
 			if pattern[11]:
-				return vowel_phenome + "'" + consonant_phenome
+				return vowel_phoneme + "'" + consonant_phoneme
 			else:
-				return consonant_phenome + "'" + vowel_phenome
-		elif not vowel_phenome:
-			return consonant_phenome
-		elif not consonant_phenome:
-			return vowel_phenome
+				return consonant_phoneme + "'" + vowel_phoneme
+		elif not vowel_phoneme:
+			return consonant_phoneme
+		elif not consonant_phoneme:
+			return vowel_phoneme
 	
 	return ""
 

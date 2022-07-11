@@ -15,7 +15,7 @@ func _gui_input(event: InputEvent) -> void:
 					if current_index > 1: # Not first rune
 						var previous_rune = word.get_child(current_index - 1)
 						
-						var input: LineEdit = previous_rune.get_node("Input Center/Phenome Input")
+						var input: LineEdit = previous_rune.get_node("Input Center/Phoneme Input")
 
 						var original_position = len(input.text)
 						input.text += text
@@ -32,7 +32,7 @@ func _gui_input(event: InputEvent) -> void:
 							var previous_word = line.get_child(word_index - 1)
 							var last_rune = previous_word.get_child(previous_word.get_child_count() - 3)
 							
-							var input: LineEdit = last_rune.get_node("Input Center/Phenome Input")
+							var input: LineEdit = last_rune.get_node("Input Center/Phoneme Input")
 							
 							var original_position = len(input.text)
 							input.text += text
@@ -54,7 +54,7 @@ func _gui_input(event: InputEvent) -> void:
 								var last_word = previous_line.get_child(previous_line.get_child_count() - 2)
 								var last_rune = last_word.get_child(last_word.get_child_count() - 3)
 								
-								var input: LineEdit = last_rune.get_node("Input Center/Phenome Input")
+								var input: LineEdit = last_rune.get_node("Input Center/Phoneme Input")
 								
 								var original_position = len(input.text)
 								input.text += text
@@ -76,7 +76,7 @@ func _gui_input(event: InputEvent) -> void:
 					if current_index > 1:
 						var previous_rune = word.get_child(current_index - 1)
 						
-						var input: LineEdit = previous_rune.get_node("Input Center/Phenome Input")
+						var input: LineEdit = previous_rune.get_node("Input Center/Phoneme Input")
 						input.caret_position = len(input.text)
 						input.grab_focus()
 						
@@ -87,7 +87,7 @@ func _gui_input(event: InputEvent) -> void:
 							var previous_word = line.get_child(word_index - 1)
 							var last_rune = previous_word.get_child(previous_word.get_child_count() - 3)
 							
-							var input: LineEdit = last_rune.get_node("Input Center/Phenome Input")
+							var input: LineEdit = last_rune.get_node("Input Center/Phoneme Input")
 							input.caret_position = len(input.text)
 							input.grab_focus()
 			
@@ -98,7 +98,7 @@ func _gui_input(event: InputEvent) -> void:
 					if current_index < rune.get_parent().get_rune_count():
 						var next_rune = word.get_child(current_index + 1)
 						
-						var input: LineEdit = next_rune.get_node("Input Center/Phenome Input")
+						var input: LineEdit = next_rune.get_node("Input Center/Phoneme Input")
 						input.caret_position = 0
 						input.grab_focus()
 						
@@ -109,7 +109,7 @@ func _gui_input(event: InputEvent) -> void:
 							var next_word = line.get_child(word_index + 1)
 							var first_rune = next_word.get_child(1)
 							
-							var input: LineEdit = first_rune.get_node("Input Center/Phenome Input")
+							var input: LineEdit = first_rune.get_node("Input Center/Phoneme Input")
 							input.caret_position = 0
 							input.grab_focus()
 
@@ -124,13 +124,13 @@ func build_from_segments(segments: Array, flipped: bool) -> void:
 			empty = false
 			break
 	
-	var vowel_phenome: String
+	var vowel_phoneme: String
 	if not empty:
 		var vowel_translation = Persistent.get_translation("vowels", "rune", segments.slice(0, 4))
 		if vowel_translation.empty():
-			vowel_phenome = "?"
+			vowel_phoneme = "?"
 		else:
-			vowel_phenome = vowel_translation.phenome
+			vowel_phoneme = vowel_translation.phoneme
 		
 	empty = true
 	
@@ -139,25 +139,25 @@ func build_from_segments(segments: Array, flipped: bool) -> void:
 			empty = false
 			break
 	
-	var consonant_phenome: String
+	var consonant_phoneme: String
 	if not empty:
 		var consonant_translation = Persistent.get_translation("consonants", "rune", segments.slice(5, 10))
 		if consonant_translation.empty():
-			consonant_phenome = "?"
+			consonant_phoneme = "?"
 		else:
-			consonant_phenome = consonant_translation.phenome
+			consonant_phoneme = consonant_translation.phoneme
 
-	if not consonant_phenome and not vowel_phenome:
+	if not consonant_phoneme and not vowel_phoneme:
 		text = ""
-	elif consonant_phenome and vowel_phenome:
+	elif consonant_phoneme and vowel_phoneme:
 		if flipped:
-			text = vowel_phenome + "'" + consonant_phenome
+			text = vowel_phoneme + "'" + consonant_phoneme
 		else:
-			text = consonant_phenome + "'" + vowel_phenome
-	elif not vowel_phenome:
-		text = consonant_phenome
-	elif not consonant_phenome:
-		text = vowel_phenome
+			text = consonant_phoneme + "'" + vowel_phoneme
+	elif not vowel_phoneme:
+		text = consonant_phoneme
+	elif not consonant_phoneme:
+		text = vowel_phoneme
 
 func text_changed(new_text: String) -> void:
 	var rune = owner
@@ -184,8 +184,8 @@ func text_changed(new_text: String) -> void:
 		new_text = new_text.to_upper()
 		
 		# Split Text
-		var phenome_pairs = new_text.split(" ", true, 1)
-		var phenomes = phenome_pairs[0].split("'")
+		var phoneme_pairs = new_text.split(" ", true, 1)
+		var phonemes = phoneme_pairs[0].split("'")
 		
 		var current_position = caret_position
 		
@@ -195,25 +195,25 @@ func text_changed(new_text: String) -> void:
 		var translation_c : Dictionary
 		var translation_v : Dictionary
 		
-		translation_c = Persistent.get_translation("consonants", "phenome", phenomes[0])
+		translation_c = Persistent.get_translation("consonants", "phoneme", phonemes[0])
 		if translation_c.empty():
-			translation_c = Persistent.get_translation("consonants", "aliases", phenomes[0])
+			translation_c = Persistent.get_translation("consonants", "aliases", phonemes[0])
 		
 		if translation_c.empty():
-			translation_v = Persistent.get_translation("vowels", "phenome", phenomes[0])
+			translation_v = Persistent.get_translation("vowels", "phoneme", phonemes[0])
 			if translation_v.empty():
-				translation_v = Persistent.get_translation("vowels", "aliases", phenomes[0])
-			if len(phenomes) > 1:
+				translation_v = Persistent.get_translation("vowels", "aliases", phonemes[0])
+			if len(phonemes) > 1:
 				flipped = true
-		elif len(phenomes) > 1:
-			translation_v = Persistent.get_translation("vowels", "phenome", phenomes[1])
+		elif len(phonemes) > 1:
+			translation_v = Persistent.get_translation("vowels", "phoneme", phonemes[1])
 			if translation_v.empty():
-				translation_v = Persistent.get_translation("vowels", "aliases", phenomes[1])
+				translation_v = Persistent.get_translation("vowels", "aliases", phonemes[1])
 			
 		if flipped:
-			translation_c = Persistent.get_translation("consonants", "phenome", phenomes[1])
+			translation_c = Persistent.get_translation("consonants", "phoneme", phonemes[1])
 			if translation_c.empty():
-				translation_c = Persistent.get_translation("consonants", "aliases", phenomes[1])
+				translation_c = Persistent.get_translation("consonants", "aliases", phonemes[1])
 
 		# Set Rune Pattern
 		if translation_v.empty():
@@ -245,10 +245,10 @@ func text_changed(new_text: String) -> void:
 		Persistent.emit_signal("data_updated")
 
 		# Carry
-		if len(phenome_pairs) > 1:
-			text = phenome_pairs[0]
+		if len(phoneme_pairs) > 1:
+			text = phoneme_pairs[0]
 
-			if word.get_rune_count() > 1 and phenome_pairs[0].empty(): # Move current rune into a new word
+			if word.get_rune_count() > 1 and phoneme_pairs[0].empty(): # Move current rune into a new word
 				var new_word = line.add_word(word_index + 1, true) # Add new word entry
 
 				var child_index = rune.get_index()
@@ -266,9 +266,9 @@ func text_changed(new_text: String) -> void:
 			else:
 				rune = rune.get_parent().add_rune(rune.get_rune_index() + 1, true)
 				
-			var input: LineEdit = rune.get_node("Input Center/Phenome Input")
+			var input: LineEdit = rune.get_node("Input Center/Phoneme Input")
 			
-			input.text = phenome_pairs[1]
-			input.caret_position = current_position - len(phenome_pairs[0]) - 1
+			input.text = phoneme_pairs[1]
+			input.caret_position = current_position - len(phoneme_pairs[0]) - 1
 			input.grab_focus()
-			input.emit_signal("text_changed", phenome_pairs[1])
+			input.emit_signal("text_changed", phoneme_pairs[1])

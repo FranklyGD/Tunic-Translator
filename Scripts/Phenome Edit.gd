@@ -10,11 +10,11 @@ func _ready() -> void:
 	connect("text_changed", self, "_text_changed")
 	
 	for entry in Persistent.translations.vowels:
-		add_keyword_color(entry.phenome, Color.lightcoral)
-		add_keyword_color(entry.phenome.to_lower(), Color.lightcoral)
+		add_keyword_color(entry.phoneme, Color.lightcoral)
+		add_keyword_color(entry.phoneme.to_lower(), Color.lightcoral)
 	for entry in Persistent.translations.consonants:
-		add_keyword_color(entry.phenome, Color.lightgreen)
-		add_keyword_color(entry.phenome.to_lower(), Color.lightgreen)
+		add_keyword_color(entry.phoneme, Color.lightgreen)
+		add_keyword_color(entry.phoneme.to_lower(), Color.lightgreen)
 	
 	update()
 	
@@ -108,7 +108,7 @@ func _text_changed() -> void:
 			
 			while end_rune != null and rune <= end_rune or (end_rune == null or line != end_line and word != end_word) and rune < len(runes):
 				
-				Persistent.main_writer.patterns[line][word][rune] = get_pattern_from_phenomes(runes[rune])
+				Persistent.main_writer.patterns[line][word][rune] = get_pattern_from_phonemes(runes[rune])
 		
 				rune += 1
 			
@@ -134,7 +134,7 @@ func _text_changed() -> void:
 			
 			while rune < len(runes):
 				
-				Persistent.main_writer.patterns[line][word][rune] = get_pattern_from_phenomes(runes[rune])
+				Persistent.main_writer.patterns[line][word][rune] = get_pattern_from_phonemes(runes[rune])
 		
 				rune += 1
 			
@@ -162,16 +162,16 @@ func get_wr(line: int, column: int) -> Dictionary:
 	
 	return {"word": word_idx, "rune": rune_idx}
 
-func get_pattern_from_phenomes(phenome_pair: String) -> Array:
+func get_pattern_from_phonemes(phoneme_pair: String) -> Array:
 	var pattern = [
 		false, false, false, false, false,
 		false, false, false, false, false, false,
 		false
 	]
 		
-	if not phenome_pair.empty():
+	if not phoneme_pair.empty():
 		# Split Text
-		var phenomes = phenome_pair.to_upper().split("'")
+		var phonemes = phoneme_pair.to_upper().split("'")
 		
 		# Find Correct Patterns
 		var flipped = false
@@ -179,25 +179,25 @@ func get_pattern_from_phenomes(phenome_pair: String) -> Array:
 		var translation_c : Dictionary
 		var translation_v : Dictionary
 		
-		translation_c = Persistent.get_translation("consonants", "phenome", phenomes[0])
+		translation_c = Persistent.get_translation("consonants", "phoneme", phonemes[0])
 		if translation_c.empty():
-			translation_c = Persistent.get_translation("consonants", "aliases", phenomes[0])
+			translation_c = Persistent.get_translation("consonants", "aliases", phonemes[0])
 		
 		if translation_c.empty():
-			translation_v = Persistent.get_translation("vowels", "phenome", phenomes[0])
+			translation_v = Persistent.get_translation("vowels", "phoneme", phonemes[0])
 			if translation_v.empty():
-				translation_v = Persistent.get_translation("vowels", "aliases", phenomes[0])
-			if len(phenomes) > 1:
+				translation_v = Persistent.get_translation("vowels", "aliases", phonemes[0])
+			if len(phonemes) > 1:
 				flipped = true
-		elif len(phenomes) > 1:
-			translation_v = Persistent.get_translation("vowels", "phenome", phenomes[1])
+		elif len(phonemes) > 1:
+			translation_v = Persistent.get_translation("vowels", "phoneme", phonemes[1])
 			if translation_v.empty():
-				translation_v = Persistent.get_translation("vowels", "aliases", phenomes[1])
+				translation_v = Persistent.get_translation("vowels", "aliases", phonemes[1])
 			
 		if flipped:
-			translation_c = Persistent.get_translation("consonants", "phenome", phenomes[1])
+			translation_c = Persistent.get_translation("consonants", "phoneme", phonemes[1])
 			if translation_c.empty():
-				translation_c = Persistent.get_translation("consonants", "aliases", phenomes[1])
+				translation_c = Persistent.get_translation("consonants", "aliases", phonemes[1])
 		
 		# Set Rune Pattern
 		if not translation_v.empty():

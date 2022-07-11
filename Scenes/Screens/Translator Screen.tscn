@@ -74,7 +74,7 @@ margin_right = 80.0
 margin_bottom = 35.0
 text = "+ Line"
 
-[node name="Phenomes to Runes" type="Control" parent="HSplitContainer/Control/VSplitContainer/TabContainer"]
+[node name="Phonemes to Runes" type="Control" parent="HSplitContainer/Control/VSplitContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -84,7 +84,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 11 )
 
-[node name="TextEdit" type="TextEdit" parent="HSplitContainer/Control/VSplitContainer/TabContainer/Phenomes to Runes"]
+[node name="TextEdit" type="TextEdit" parent="HSplitContainer/Control/VSplitContainer/TabContainer/Phonemes to Runes"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -362,7 +362,7 @@ current_dir = "/"
 current_path = "/"
 
 [connection signal="tab_changed" from="HSplitContainer/Control/VSplitContainer/TabContainer" to="HSplitContainer/Control/VSplitContainer/TabContainer/Per Rune" method="_tab_changed"]
-[connection signal="tab_changed" from="HSplitContainer/Control/VSplitContainer/TabContainer" to="HSplitContainer/Control/VSplitContainer/TabContainer/Phenomes to Runes" method="_tab_changed"]
+[connection signal="tab_changed" from="HSplitContainer/Control/VSplitContainer/TabContainer" to="HSplitContainer/Control/VSplitContainer/TabContainer/Phonemes to Runes" method="_tab_changed"]
 [connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/TabContainer/Per Rune/ScrollContainer/Lines/HBoxContainer/Button" to="HSplitContainer/Control/VSplitContainer/TabContainer/Per Rune/ScrollContainer/Lines" method="_add_line_button_pressed"]
 [connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer/Height Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_height"]
 [connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/HBoxContainer/Radius Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_radius"]

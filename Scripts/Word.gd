@@ -13,7 +13,7 @@ func add_rune(idx: int = get_rune_count(), update: bool = false) -> Node:
 		false, false, false, false, false,
 		false, false, false, false, false, false
 	]
-	rune.get_node("Input Center/Phenome Input").text = ""
+	rune.get_node("Input Center/Phoneme Input").text = ""
 	
 	if update:
 		Persistent.main_writer.patterns[get_parent().get_line_index()][get_word_index()].insert(idx, [

@@ -1,6 +1,6 @@
 # Tunic Translator
 
-Converts between phenomes and runes of Trunic!
+Converts between phonemes and runes of Trunic!
 
 Also generates tones based off of the audible language Tuneic!
 
