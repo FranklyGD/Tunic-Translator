@@ -150,7 +150,6 @@ margin_bottom = 27.0
 size_flags_horizontal = 3
 max_value = 300.0
 value = 16.0
-rounded = true
 allow_greater = true
 align = 1
 suffix = "px"
@@ -174,7 +173,6 @@ margin_bottom = 27.0
 size_flags_horizontal = 3
 max_value = 300.0
 value = 16.0
-rounded = true
 allow_greater = true
 align = 1
 suffix = "px"
@@ -198,7 +196,6 @@ margin_bottom = 27.0
 size_flags_horizontal = 3
 max_value = 300.0
 value = 2.0
-rounded = true
 allow_greater = true
 align = 1
 suffix = "px"
@@ -227,13 +224,13 @@ align = 1
 [node name="Audio Generator Panel" type="PanelContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
 margin_top = 163.0
 margin_right = 191.0
-margin_bottom = 272.0
+margin_bottom = 303.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel"]
 margin_left = 8.0
 margin_top = 2.0
 margin_right = 183.0
-margin_bottom = 107.0
+margin_bottom = 138.0
 
 [node name="OptionButton" type="OptionButton" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer"]
 margin_right = 175.0
@@ -248,14 +245,34 @@ margin_top = 39.0
 margin_right = 175.0
 margin_bottom = 66.0
 
-[node name="NPS" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer"]
+[node name="Semitone" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer"]
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "Semitone"
+
+[node name="Semitone Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer"]
+margin_left = 87.0
+margin_right = 175.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+allow_greater = true
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer"]
+margin_top = 70.0
+margin_right = 175.0
+margin_bottom = 97.0
+
+[node name="NPS" type="Label" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer2"]
 margin_top = 2.0
 margin_right = 83.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 text = "Note/Sec"
 
-[node name="NPS Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer"]
+[node name="NPS Spinner" type="SpinBox" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer2"]
 margin_left = 87.0
 margin_right = 175.0
 margin_bottom = 27.0
@@ -266,9 +283,9 @@ allow_greater = true
 align = 1
 
 [node name="Play Button" type="Button" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer"]
-margin_top = 70.0
+margin_top = 101.0
 margin_right = 175.0
-margin_bottom = 105.0
+margin_bottom = 136.0
 rect_pivot_offset = Vector2( 93.8593, 50.7525 )
 size_flags_vertical = 4
 text = "Play"
@@ -278,9 +295,9 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer"]
-margin_top = 276.0
+margin_top = 307.0
 margin_right = 191.0
-margin_bottom = 315.0
+margin_bottom = 346.0
 
 [node name="Export Menu" type="MenuButton" parent="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/PanelContainer"]
 margin_left = 8.0
@@ -385,7 +402,8 @@ current_path = "/"
 [connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer3/Thickness Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_thickness"]
 [connection signal="toggled" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Rune Settings Panel/VBoxContainer/HBoxContainer4/Thickness Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/ScrollContainer/Trunic Writer" method="set_cut_under_line"]
 [connection signal="item_selected" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/OptionButton" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="_generator_index_item_selected"]
-[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer/NPS Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="_nps_spinner_value_changed"]
+[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer/Semitone Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="set_semitone"]
+[connection signal="value_changed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/HBoxContainer2/NPS Spinner" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="set_nps"]
 [connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/Play Button" to="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/Play Button" method="set_disabled" binds= [ true ]]
 [connection signal="pressed" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/Audio Generator Panel/VBoxContainer/Play Button" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="play"]
 [connection signal="export_audio" from="HSplitContainer/Control/VSplitContainer/Preview Panel/HBoxContainer/PanelContainer/Export Menu" to="HSplitContainer/Control/VSplitContainer/Preview Panel/Audio Output Manager" method="save_audio"]

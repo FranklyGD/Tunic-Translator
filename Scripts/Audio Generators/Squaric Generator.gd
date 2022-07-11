@@ -21,16 +21,29 @@ func generate_sample(notes: PoolIntArray, nps: float = 12):
 	
 	var raw_values = PoolRealArray()
 	var beat_time = 0.0
-	while beat_time < note_count + 7:
+	while beat_time < note_count + 20:
+		# Get frequency from note
+		var note = notes[int(min(beat_time, note_count - 1))]
+		var octave = note / 12 + 4
+		note = note % 12
+		var frequency = Persistent.base_scale[note] * pow(2, octave)
+		
+		if fmod(beat_time, 1) > 0.9:
+			# Slide
+			var note2 = notes[int(min(beat_time + 1, note_count - 1))]
+			var octave2 = note2 / 12 + 4
+			note2 = note2 % 12
+			var frequency2 = Persistent.base_scale[note2] * pow(2, octave2)
+			frequency = lerp(frequency, frequency2, (fmod(beat_time, 1)-0.9) / 0.1)
+			
+		# Write wave form value
 		var value = 0.0
 		
-		var amp = 0.3
+		var amp = 16.35 * pow(2, 4) / frequency
 		if beat_time < note_count:
-			amp *= 1 - fmod(beat_time, 1) * 0.2
+			amp *= 1
 		else:
 			amp *= 1 - (beat_time - note_count) * 0.05
-			#if beat_time - note_count > 7.75:
-				#amp *= 1 - (beat_time - note_count - 7.75) / 0.25
 		
 		value += sinwave_gen(phase_times[0], amp)
 		
@@ -47,19 +60,6 @@ func generate_sample(notes: PoolIntArray, nps: float = 12):
 		raw_values.append(value)
 		
 		# Advance Phase
-		var note = notes[int(min(beat_time, note_count - 1))]
-		var octave = note / 12 + 4
-		note = note % 12
-		var frequency = Persistent.base_scale[note] * pow(2, octave)
-		
-		if fmod(beat_time, 1) > 0.9:
-			# Slide
-			var note2 = notes[int(min(beat_time + 1, note_count - 1))]
-			var octave2 = note2 / 12 + 4
-			note2 = note2 % 12
-			var frequency2 = Persistent.base_scale[note2] * pow(2, octave2)
-			frequency = lerp(frequency, frequency2, (fmod(beat_time, 1)-0.9) / 0.1)
-		
 		phase_times[0] = fmod(phase_times[0] + frequency / sample.mix_rate, 1.0)
 		
 		phase_times[1] = fmod(phase_times[1] + (frequency + 4800) / sample.mix_rate, 1.0)
@@ -79,22 +79,6 @@ func generate_sample(notes: PoolIntArray, nps: float = 12):
 	var source_values = mix_in(echo0_values, raw_values, 0.5, 1)
 	var echo1_values = echo_filter(source_values, 6, int(8 / delta), 0.4)
 	raw_values = mix_in(echo1_values, source_values, 0.5, 1)
-	
-	var echo2_values = echo_filter(raw_values, 100, int(0.025306122448979593 * sample.mix_rate), 0.98)
-	var echo3_values = echo_filter(raw_values, 100, int(0.026938775510204082 * sample.mix_rate), 0.98)
-	var echo4_values = echo_filter(raw_values, 100, int(0.028956916099773241 * sample.mix_rate), 0.98)
-	var echo5_values = echo_filter(raw_values, 100, int(0.03074829931972789 * sample.mix_rate), 0.98)
-	
-	var reverbe_values: PoolRealArray
-	reverbe_values = mix_in(echo3_values, echo2_values, 1, 1)
-	reverbe_values = mix_in(echo4_values, reverbe_values, 1, 1)
-	reverbe_values = mix_in(echo5_values, reverbe_values, 1, 1)
-
-	reverbe_values = all_filter(reverbe_values, 100, int(0.0051020408163265302 * sample.mix_rate), 0.7)
-	reverbe_values = all_filter(reverbe_values, 100, int(0.007732426303854875 * sample.mix_rate), 0.7)
-	
-	reverbe_values = low_pass_filter(reverbe_values, 0.01)
-	raw_values = mix_in(reverbe_values, raw_values, 1, 1)
 	
 	# Compress
 	var values = PoolByteArray()
@@ -124,29 +108,6 @@ func echo_filter(values: PoolRealArray, count: int, delay: int, decay: float) ->
 		delayed_values[i + original_length + delay] = delayed_values[i + original_length] * decay
 	
 	return delayed_values
-	
-func all_filter(values: PoolRealArray, count: int, delay: int, decay: float) -> PoolRealArray:
-	var original_length = len(values)
-	var echoed_values = echo_filter(values, count, delay, decay)
-	
-	for i in original_length:
-		echoed_values[i] = values[i] * -decay + echoed_values[i]
-	
-	return echoed_values
-	
-func low_pass_filter(values: PoolRealArray, dt: float) -> PoolRealArray:
-	var original_length = len(values)
-	var filtered_values = PoolRealArray()
-	filtered_values.resize(original_length)
-	
-	var t  = 1 / (1 + dt)
-	var t2  = 1 / (1 + dt*10)
-	var c = 0.0
-	for i in original_length:
-		c = lerp(values[i], lerp(0.0, c, t2), t)
-		filtered_values[i] = c
-	
-	return filtered_values
 
 func mix_in(values0: PoolRealArray, values1: PoolRealArray, gain0: float, gain1: float) -> PoolRealArray:
 	var mixed_values = PoolRealArray()

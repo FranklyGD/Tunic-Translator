@@ -4,7 +4,8 @@ export(NodePath) var filedialog_path
 
 var generator_index = 0
 var generator_thread : Thread
-var nps = 12
+var semitone = 0 setget set_semitone
+var nps = 12 setget set_nps
 
 var changed = true
 var will_play = -1
@@ -79,16 +80,16 @@ func _export_audio_dialog_file_selected(path: String) -> void:
 
 func build_notes() -> PoolIntArray:
 	var notes = PoolIntArray()
-	var base_line = 0
+	var base_tone = semitone
 	
 	for line in Persistent.main_writer.patterns:
 		for word in line:
 			for rune in word:
 				for tone in build_from_pattern(rune):
-					notes.append(base_line + tone)
+					notes.append(base_tone + tone)
 			
 			
-			base_line += 1
+			base_tone += 1
 	
 	return notes
 
@@ -141,7 +142,11 @@ func _generator_index_item_selected(value: int) -> void:
 	generator_index = value
 	changed = true
 
-func _nps_spinner_value_changed(value: float) -> void:
+func set_semitone(value: int) -> void:
+	semitone = value
+	changed = true
+
+func set_nps(value: int) -> void:
 	nps = value
 	changed = true
 
